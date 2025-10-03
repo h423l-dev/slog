@@ -10,8 +10,11 @@
 # XXX Output is not quite TAP, but should be. We could make a TAP mode for slog, or strip the
 # non-tap output in the log.
 
-LOG_PATH="./my.log"
-. ../slog.sh
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+readonly SCRIPT_DIR
+
+LOG_PATH="$SCRIPT_DIR/my.log"
+. "$SCRIPT_DIR/../slog.sh"
 
 log "ok 1 - This is regular log message... "
 
