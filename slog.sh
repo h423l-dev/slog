@@ -62,8 +62,9 @@ prepare_log_for_nonterminal() {
 
 log() {
     local log_text="$1"
-    local log_level="$2"
-    local log_color="$3"
+    # Default level to "info"
+    local log_level="${2:-INFO}"
+    local log_color="${3:-${LOG_INFO_COLOR}}"
 
     # Levels for comparing against LOG_LEVEL_STDOUT and LOG_LEVEL_LOG
     local LOG_LEVEL_DEBUG=0
@@ -71,10 +72,6 @@ log() {
     local LOG_LEVEL_SUCCESS=2
     local LOG_LEVEL_WARNING=3
     local LOG_LEVEL_ERROR=4
-
-    # Default level to "info"
-    [ -z ${log_level} ] && log_level="INFO";
-    [ -z ${log_color} ] && log_color="${LOG_INFO_COLOR}";
 
     # Validate LOG_LEVEL_STDOUT and LOG_LEVEL_LOG since they'll be eval-ed.
     case $LOG_LEVEL_STDOUT in
