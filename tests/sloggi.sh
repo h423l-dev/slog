@@ -32,7 +32,7 @@ log_error "ok 5 - Whoops! I made a booboo"
 LOG_LEVEL_LOG="ERROR"
 log_info "ok 6 - This should only appear on the console and not in the log file"
 
-if [ -e ./my.log ]; then
+if [ -e "$LOG_PATH" ]; then
     # Did the log get created with actual data?
     grep -q Whoops "$LOG_PATH"
     if [ $? -eq 0 ]; then
@@ -58,3 +58,4 @@ log_debug "Uh oh. This should never show up in the log or the console."
 # Invalid log level...should default to info
 LOG_LEVEL_STDOUT="DOOTDOOT"
 log_info "ok 9 - This should show up, even though LOG_LEVEL_STDOUT set to $LOG_LEVEL_STDOUT."
+
