@@ -25,10 +25,10 @@ SCRIPT_NAME="${SCRIPT_NAME#\./}"
 SCRIPT_NAME="${SCRIPT_NAME##/*/}"
 
 # Determines if we print colors or not
-if [ $(tty -s) ]; then
-    readonly INTERACTIVE_MODE="off"
-else
+if [ -t 1 ] && [ -n "$TERM" ]; then
     readonly INTERACTIVE_MODE="on"
+else
+    readonly INTERACTIVE_MODE="off"
 fi
 
 #--------------------------------------------------------------------------------------------------
