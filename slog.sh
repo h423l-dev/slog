@@ -6,7 +6,6 @@
 # Licensed under the MIT license
 # http://github.com/swelljoe/slog
 #--------------------------------------------------------------------------------------------------
-set -e  # Fail on first error
 
 # LOG_PATH - Define $LOG_PATH in your script to log to a file, otherwise
 # just writes to STDOUT.
