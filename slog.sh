@@ -9,6 +9,7 @@
 
 # LOG_PATH - Define $LOG_PATH in your script to log to a file, otherwise
 # just writes to STDOUT.
+LOG_PATH=${LOG_PATH:-""}
 
 # LOG_LEVEL_STDOUT - Define to determine above which level goes to STDOUT.
 # By default, all log levels will be written to STDOUT.
